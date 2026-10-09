@@ -1,6 +1,6 @@
 # VLA Notes
 
-面向 GitHub Pages 的静态学习站点。当前包含六个技术专题的主页，以及 OpenVLA、RT-1、RT-2、ACT 四篇精读页。
+面向 GitHub Pages 的静态学习站点。当前包含六个技术专题的主页，以及 OpenVLA、RT-1、RT-2、ACT、OpenVLA-OFT 五篇精读页。
 
 本项目当前以论文阅读、架构理解和实验证据整理为主，源码复现暂缓。
 
@@ -23,6 +23,7 @@ dist/
   papers/rt1/index.html             RT-1 精读内容（八个模块）
   papers/rt2/index.html             RT-2 精读内容
   papers/act/index.html             ACT 精读内容（八个模块）
+  papers/openvla-oft/index.html     OpenVLA-OFT 精读内容
   assets/style.css                 共享样式、移动端布局
   assets/app.js                    目录、图像放大、流程切换、编码示例
   assets/openvla-architecture.svg   可编辑架构重绘
@@ -93,6 +94,16 @@ dist/
 - PDF 与 HTML 图号、正文 L1 与 Algorithm 1 的 MSE、论文 k=100 与项目视频 k=90 分开说明。
 - 真实任务（1 种子 × 25 评测）、仿真任务（3 种子 × 50 评测）与人类遥操作用户研究分别解读；源码复现暂缓。
 - `scripts/render_act_figures.py` 从 CSV 生成独立 SVG 图表，并重绘架构与时序机制图。
+
+### OpenVLA-OFT
+
+- 论文：arXiv:2502.19645v2（2025-04-28，RSS 2025）；整理日期 2026-10-09。
+- 八个模块覆盖研究问题、并行架构、连续动作与训练、执行/效率、LIBERO、ALOHA、FiLM/消融与局限。
+- OFT 与 OFT+ 分开；97.1% 完整输入与 95.3% 单视角配置分开；ALOHA 阶段得分与语言目标选择成功率分开。
+- 两张理解重绘、四张实验图、六份 CSV；完整保留 Table I 分组和 Tables X–XIII 子阶段评分。
+- 效率交互使用 Table II 的报告值与延迟演算，区分动作吞吐量、块查询频率和机器人执行节拍。
+- 标注正文 ms 单位问题、Prismatic VLM 初始化消融、整块开环执行与原版 ACT 时序集成的区别。
+- `scripts/render_oft_figures.py` 生成图表与机制图；源码复现和机器人实验暂缓。
 
 ## 验证
 
