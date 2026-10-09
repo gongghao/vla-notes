@@ -1,5 +1,8 @@
 name: Deploy GitHub Pages
 on:
+  push:
+    branches: [main]
+    paths: [vla-site-source.zip, .github/workflows/deploy.yml]
   workflow_dispatch:
 permissions:
   contents: read
