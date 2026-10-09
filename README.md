@@ -1,6 +1,6 @@
 # VLA Notes
 
-面向 GitHub Pages 的静态学习站点。当前包含六个技术专题的主页，以及 OpenVLA、RT-1、RT-2、ACT、OpenVLA-OFT 五篇精读页。
+面向 GitHub Pages 的静态学习站点。当前包含六个技术专题的主页，以及 OpenVLA、RT-1、RT-2、ACT、OpenVLA-OFT、FAST 六篇精读页。
 
 本项目当前以论文阅读、架构理解和实验证据整理为主，源码复现暂缓。
 
@@ -24,6 +24,7 @@ dist/
   papers/rt2/index.html             RT-2 精读内容
   papers/act/index.html             ACT 精读内容（八个模块）
   papers/openvla-oft/index.html     OpenVLA-OFT 精读内容
+  papers/fast/index.html            FAST 精读内容
   assets/style.css                 共享样式、移动端布局
   assets/app.js                    目录、图像放大、流程切换、编码示例
   assets/openvla-architecture.svg   可编辑架构重绘
@@ -104,6 +105,17 @@ dist/
 - 效率交互使用 Table II 的报告值与延迟演算，区分动作吞吐量、块查询频率和机器人执行节拍。
 - 标注正文 ms 单位问题、Prismatic VLM 初始化消融、整块开环执行与原版 ACT 时序集成的区别。
 - `scripts/render_oft_figures.py` 生成图表与机制图；源码复现和机器人实验暂缓。
+
+### FAST
+
+- 论文：arXiv:2501.09747v1（2025-01-16）；整理日期 2026-10-09。
+- 八个模块覆盖冗余问题、编解码、DCT/量化、BPE/自回归、FAST+、实验协议、训练/推理成本、局限。
+- 两张机制理解重绘、三张数据图、七份 CSV；完整保留 Table I、词表训练混合、Tables II–III 和定性证据范围。
+- DCT 交互为正交 DCT-II 教学演算，不加载 FAST+，不报告真实 BPE token 数；可调尺度、重建曲线与误差。
+- 明确量化有损、BPE 无损、FAST+ 的词表学习和 VLA 策略训练的区别。
+- 保留 DROID 正文16任务与表17行、Laundry任务专用微调、离线人形/驾驶编码与控制实测的区别。
+- 成功率曲线未做读图猜测；约750ms与100ms内的延迟、3x步骤与5x GPU小时分别标注。
+- `scripts/render_fast_figures.py` 生成图表与机制图；源码和机器人实验复现暂缓。
 
 ## 验证
 
