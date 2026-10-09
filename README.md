@@ -1,6 +1,6 @@
 # VLA Notes
 
-面向 GitHub Pages 的静态学习站点。当前包含六个技术专题的主页，以及 OpenVLA、RT-1、RT-2 三篇精读页。
+面向 GitHub Pages 的静态学习站点。当前包含六个技术专题的主页，以及 OpenVLA、RT-1、RT-2、ACT 四篇精读页。
 
 本项目当前以论文阅读、架构理解和实验证据整理为主，源码复现暂缓。
 
@@ -21,6 +21,8 @@ dist/
   index.html                       专题与论文入口
   papers/openvla/index.html         OpenVLA 精读内容
   papers/rt1/index.html             RT-1 精读内容（八个模块）
+  papers/rt2/index.html             RT-2 精读内容
+  papers/act/index.html             ACT 精读内容（八个模块）
   assets/style.css                 共享样式、移动端布局
   assets/app.js                    目录、图像放大、流程切换、编码示例
   assets/openvla-architecture.svg   可编辑架构重绘
@@ -30,6 +32,8 @@ dist/
   assets/rt1-results.svg            RT-1 四类评测图
   assets/rt1-data-ablation.svg      数据规模与任务多样性图
   data/rt1-*.csv                    RT-1 Tables 2、7、13 数值及来源
+  assets/act-*.svg                  ACT 架构、时序和实验图
+  data/act-*.csv                    ACT 主实验、完整子阶段与消融数据
 ```
 
 ## 增加论文
@@ -79,6 +83,16 @@ dist/
 - 主机器人实验与 Language-Table、默认策略与 CoT 微调变体分开；不补造控制规格。
 - `scripts/render_rt2_figures.py` 从 CSV 生成三个 SVG 图表及一张架构理解重绘。
 - 新内容不包含源码复现任务。
+
+### ACT
+
+- 论文：arXiv:2304.13705v1（2023-04-23，RSS 2023）；整理日期 2026-10-09。
+- 八个模块：研究问题、架构、CVAE、动作分块、时序集成、主实验、消融、局限与联系。
+- 两张机制理解重绘、三张实验图、四份 CSV（包括 Tables I–II 完整子阶段数据）。
+- 时序权重交互是教学演算；明确原文对旧候选的权重次序，不代表策略运行。
+- PDF 与 HTML 图号、正文 L1 与 Algorithm 1 的 MSE、论文 k=100 与项目视频 k=90 分开说明。
+- 真实任务（1 种子 × 25 评测）、仿真任务（3 种子 × 50 评测）与人类遥操作用户研究分别解读；源码复现暂缓。
+- `scripts/render_act_figures.py` 从 CSV 生成独立 SVG 图表，并重绘架构与时序机制图。
 
 ## 验证
 
