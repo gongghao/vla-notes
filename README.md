@@ -1,6 +1,6 @@
 # VLA Notes
 
-面向 GitHub Pages 的静态学习站点。当前包含六个技术专题的主页，以及 OpenVLA、RT-1、RT-2、ACT、OpenVLA-OFT、FAST 六篇精读页，以及前沿论文专题中的 Astra 具身策略报告与 ActionCodec v2 两篇精读。
+面向 GitHub Pages 的静态学习站点。当前包含六个技术专题的主页，以及 OpenVLA、RT-1、RT-2、ACT、OpenVLA-OFT、FAST 六篇精读页，以及前沿论文专题中的 Astra 具身策略报告、ActionCodec v2 和 ActMem-VLA 三篇精读。
 
 本项目当前以论文阅读、架构理解和实验证据整理为主，源码复现暂缓。
 
@@ -27,6 +27,7 @@ dist/
   papers/fast/index.html            FAST 精读内容
   frontier/astra-policy/index.html 前沿报告：GPT 6 Astra as an Embodied Policy
   frontier/actioncodec/index.html  前沿论文：ActionCodec v2
+  frontier/actmem-vla/index.html    前沿论文：Remember What You Did / ActMem-VLA
   assets/style.css                 共享样式、移动端布局
   assets/app.js                    目录、图像放大、流程切换、编码示例
   assets/openvla-architecture.svg   可编辑架构重绘
@@ -143,6 +144,17 @@ dist/
 - 区分主表无策略 VLA 预训练与 tokenizer 预训练、15K 小时大规模 VLA 预训练；区分 AR/PD/KI/BAR 和 RVQ 部署路径。
 - 标注 VQVLA 原表平均数疑点、组内排名、不同 horizon、FAST 非法长度修复与未说明的推理计时设备；未猜测曲线/柱高或补造不确定度。
 - `scripts/render_actioncodec_figures.py` 从 CSV 生成图表及机制图；源码训练与机器人复现暂缓。
+
+### ActMem-VLA · F03
+
+- 论文固定为 arXiv:2609.37307v1（2026-09-29）；整理日期2026-10-10；全文8页，无附录。
+- 九个模块解释动作历史、Mamba-2状态、冻结范围、4/6次flow更新、插件训练、两种仿真预算、消融与实机结果。
+- 两张机制重绘、五张实验图、七份CSV；Figure 4读取PDF印出的全部数字标签，Tables I–II完整保存；不猜Figure 3雷达读数。
+- 两项交互：Table II交接比率与专家更新时间轴、Eq.4的95分位上取整/600封顶。
+- 区分180次/任务主比较与60次/任务单训练种子消融；保留未明的消融预算、H/s与完整训练/计时规格。
+- 实机51/80对28/80，精确差28.75个百分点；保留T8去PAE更好的消融反例，未把动作历史当成果确认。
+- 原文及本页中文改编/重绘为CC BY-SA 4.0；署名、改编与许可记录存于`dist/data/actmem-license.txt`。
+- `scripts/render_actmem_figures.py`可重生成图表；未运行模型或机器人复现。
 
 ## 验证
 
