@@ -1,6 +1,6 @@
 # VLA Notes
 
-面向 GitHub Pages 的静态学习站点。当前包含六个技术专题的主页，以及 OpenVLA、RT-1、RT-2、ACT、OpenVLA-OFT、FAST 六篇精读页。
+面向 GitHub Pages 的静态学习站点。当前包含六个技术专题的主页，以及 OpenVLA、RT-1、RT-2、ACT、OpenVLA-OFT、FAST 六篇精读页，以及前沿论文专题中的 Astra 具身策略报告精读。
 
 本项目当前以论文阅读、架构理解和实验证据整理为主，源码复现暂缓。
 
@@ -25,6 +25,7 @@ dist/
   papers/act/index.html             ACT 精读内容（八个模块）
   papers/openvla-oft/index.html     OpenVLA-OFT 精读内容
   papers/fast/index.html            FAST 精读内容
+  frontier/astra-policy/index.html 前沿报告：GPT 6 Astra as an Embodied Policy
   assets/style.css                 共享样式、移动端布局
   assets/app.js                    目录、图像放大、流程切换、编码示例
   assets/openvla-architecture.svg   可编辑架构重绘
@@ -116,6 +117,21 @@ dist/
 - 保留 DROID 正文16任务与表17行、Laundry任务专用微调、离线人形/驾驶编码与控制实测的区别。
 - 成功率曲线未做读图猜测；约750ms与100ms内的延迟、3x步骤与5x GPU小时分别标注。
 - `scripts/render_fast_figures.py` 生成图表与机制图；源码和机器人实验复现暂缓。
+
+## 前沿论文专题
+
+首页 `#frontier` 与全站侧栏设独立入口；技术报告与原有六个技术专题关联，但使用 Frontier 编号。
+
+### Astra 作为具身策略 · F01
+
+- 报告公开快照：2026-09-13；固定网站提交 `6ead090465d3b0fb19e90eb70569689c19f73d00`；整理日期 2026-10-10。
+- 九个模块覆盖 agent 闭环、Outcome/Intent gate、执行接口、双 benchmark 协议、结果、行为、成本与局限。
+- 两张机制重绘、五张数值图（包括逐任务 Score／成功率两种切换图）、七份 CSV 与源文件哈希记录。
+- 两项教学交互：候选前缀执行长度；Direct 缺失评分的算术敏感性边界。
+- 保留 RoboDojo Direct Score n=48／成功分母50及两条未终止记录；RoboLab 最终槽位包含历史结果、重试、非严格配对与决策预算差异。
+- 分开标注 RoboDojo 任务微调学生、RoboLab DROID 权重零样本参照、官方成绩重加权和历史 baseline。
+- token 总量含缓存输入；14.4% 是执行步占比；物理时间不包含模型墙钟等待。未补造置信区间。
+- `scripts/render_astra_figures.py` 生成图表与理解重绘。本轮未运行模型或控制环境。
 
 ## 验证
 
