@@ -1,6 +1,6 @@
 # VLA Notes
 
-面向 GitHub Pages 的静态学习站点。当前包含六个技术专题的主页，以及 OpenVLA、RT-1、RT-2、ACT、OpenVLA-OFT、FAST 六篇精读页，以及前沿论文专题中的 Astra 具身策略报告精读。
+面向 GitHub Pages 的静态学习站点。当前包含六个技术专题的主页，以及 OpenVLA、RT-1、RT-2、ACT、OpenVLA-OFT、FAST 六篇精读页，以及前沿论文专题中的 Astra 具身策略报告与 ActionCodec v2 两篇精读。
 
 本项目当前以论文阅读、架构理解和实验证据整理为主，源码复现暂缓。
 
@@ -26,6 +26,7 @@ dist/
   papers/openvla-oft/index.html     OpenVLA-OFT 精读内容
   papers/fast/index.html            FAST 精读内容
   frontier/astra-policy/index.html 前沿报告：GPT 6 Astra as an Embodied Policy
+  frontier/actioncodec/index.html  前沿论文：ActionCodec v2
   assets/style.css                 共享样式、移动端布局
   assets/app.js                    目录、图像放大、流程切换、编码示例
   assets/openvla-architecture.svg   可编辑架构重绘
@@ -132,6 +133,16 @@ dist/
 - 分开标注 RoboDojo 任务微调学生、RoboLab DROID 权重零样本参照、官方成绩重加权和历史 baseline。
 - token 总量含缓存输入；14.4% 是执行步占比；物理时间不包含模型墙钟等待。未补造置信区间。
 - `scripts/render_astra_figures.py` 生成图表与理解重绘。本轮未运行模型或控制环境。
+
+### ActionCodec · F02
+
+- 论文固定为 arXiv:2602.15397v2（2026-10-08）；整理日期 2026-10-10；覆盖正文及附录 A–F。
+- 十个模块解释 VQ、确定性/扰动熵、OR、容量、TCL/CLIP、架构耦合、soft prompt、RVQ 后训练、策略变体与迁移。
+- 两张机制重绘、五张实验图、九份 CSV；完整保留 Tables 1(a–d)、2–5、10–11 的分组与报告值，另存训练协议。
+- 三项教学交互：对应位置 OR 与集合交集对照、容量上界、动作吞吐量与查询频率。
+- 区分主表无策略 VLA 预训练与 tokenizer 预训练、15K 小时大规模 VLA 预训练；区分 AR/PD/KI/BAR 和 RVQ 部署路径。
+- 标注 VQVLA 原表平均数疑点、组内排名、不同 horizon、FAST 非法长度修复与未说明的推理计时设备；未猜测曲线/柱高或补造不确定度。
+- `scripts/render_actioncodec_figures.py` 从 CSV 生成图表及机制图；源码训练与机器人复现暂缓。
 
 ## 验证
 
